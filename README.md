@@ -10,7 +10,7 @@ A living research knowledge base for the Substrate Collective agent team. It is 
 
 Three tiers:
 - **`raw/`** — full-text source materials (books, papers as markdown). Do not edit. Search via QMD `substrate-raw` collection.
-- **`wiki/`** — synthesized, navigable knowledge. Max one page per file. Start here. Search via QMD `substrate-wiki` collection.
+- **`wiki/`** — synthesized, navigable knowledge. Max one page per file. Start here. Browse by folder — it's small enough not to need search.
 - **`dossiers/`** — active investigation outputs. Search via QMD `substrate-dossiers` collection.
 
 Team structure and roles: `.substrate/TEAM.md`  
@@ -69,4 +69,5 @@ Claude maintenance rules: `CLAUDE.md`
 | Track an actor across investigations | `wiki/entities/` |
 | Start a new investigation | Copy `dossiers/_template/` |
 | Read a full source text | `raw/books/` or `raw/papers/` |
-| Search across everything | QMD `substrate-wiki` collection |
+| Search full-text sources | QMD `substrate-raw` collection |
+| Search across dossiers | QMD `substrate-dossiers` collection |

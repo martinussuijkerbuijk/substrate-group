@@ -27,9 +27,10 @@ You maintain this knowledge base. The human team focuses on research; you keep t
 
 ## QMD collections for this project
 
-- `substrate-wiki` — search here first for concepts, methods, source notes
-- `substrate-raw` — search here for quotes and full-text verification
-- `substrate-dossiers` — search here for active investigation findings
+- `substrate-raw` — search for quotes and full-text verification across books and papers
+- `substrate-dossiers` — search across active investigation findings
+
+The wiki is navigated by folder structure, not QMD — it is small and structured enough not to need search.
 
 The `research`, `books`, `drafts`, `developments`, `inspiration`, `concepts` collections belong to the Climate-Code-Capital project — do not mix them.
 
