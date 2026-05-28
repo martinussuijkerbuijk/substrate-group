@@ -128,5 +128,75 @@ Every finding is tagged:
 
 ---
 
+## Source Citation Discipline
+
+Every claim, finding, and inference across all evidence layers must be anchored to a specific source. Transparency is not optional — it is a methodological requirement. Agents use the following citation hierarchy:
+
+| Priority | Source type | Citation format |
+|----------|-------------|-----------------|
+| 1 | Regulations, legal texts | `Regulation (EU) 2017/2226, OJ L 327, 9.12.2017` |
+| 2 | Corporate disclosures | `Thales SA, URD 2023, p. 142` |
+| 3 | Procurement records | `TED 2023/S 123-456789, eu-LISA framework contract` |
+| 4 | Academic papers | `Crawford, K. (2021). Atlas of AI. Yale UP, p. 284` |
+| 5 | News / media | `Statewatch, "EU Border Surveillance", 15.03.2023, URL` |
+| 6 | FOIA responses | `FOIA #2023-047, eu-LISA, received 2024-01-15` |
+| 7 | Technical standards | `ISO/IEC 19794-5:2011` |
+
+For web sources: include URL and access date. For restricted documents: include identifier and access constraint note. Unsourced claims must be tagged `[INFERRED — no primary source located]` and logged as a gap.
+
+## Actor-Network Mapping
+
+Every investigation maintains a shared `evidence/actor-network.md` in the dossier. All agents append to it; none overwrite another's entries.
+
+**Per-actor format:**
+```markdown
+### Actor: [Name]
+- **Type:** [corporate | agency | individual | infrastructure]
+- **Connections:** [→ Actor A (ownership), → Actor B (contract), → Actor C (data flow)]
+- **Role:** [what they do in this system]
+- **Tags:** #[concept-slug]
+```
+
+Tags use existing wiki concept slugs (e.g., `#threshold-of-detectability`, `#rentier-capitalism`). The map is a living document that grows across the layer-autonomy phase.
+
+## Source Ingestion Protocol
+
+When an agent discovers a source (book, paper, report, technical document) not yet in the workspace library:
+
+1. **Add to `raw/`** following the naming convention:
+   - `raw/books/[author]_[title]_[year].md`
+   - `raw/papers/[author]_[title]_[year].md`
+   - `raw/reports/[publisher]_[title]_[year].md`
+
+2. **Update the database:**
+   ```bash
+   qmd update && qmd embed
+   ```
+
+3. **Create wiki synthesis** in `wiki/sources/` using `wiki/sources/_template.md`:
+   - Argument (what it claims)
+   - Why it matters to the Substrate Collective
+   - Key concepts introduced (`[[slug]]` links)
+   - Key quotes
+   - Link to raw file
+
+4. **Cross-link concepts:** If a concept appears in 3+ sources, create/update `wiki/concepts/[slug].md`.
+
+The `raw/` folder is source material only. All synthesis lives in `wiki/`.
+
+## Model Routing
+
+| Phase | Agent | Model |
+|-------|-------|-------|
+| Scoping | Philosophy Theorist | moonshotai/kimi-k2.6 |
+| Explore (parallel) | Material Ecologist, Capital Analyst, Code Ethnographer, Community Liaison | moonshotai/kimi-k2.6 |
+| Verify | Counter-Forensic | anthropic/claude-opus-4 |
+| Synthesize | Orchestrator | anthropic/claude-opus-4 |
+| Finalize | Orchestrator | anthropic/claude-opus-4 |
+
+Synthesis tasks (verify, synthesize, finalize) route to Claude Opus for higher-reasoning convergence, gap meta-analysis, and dossier integration. Explore agents remain on kimi-k2.6 for fast, cost-effective evidence gathering.
+
+---
+
 *The Substrate Collective — Ecology | Capital | Code*
-*TEAM v1.0*
+*TEAM v1.1*
