@@ -5,6 +5,8 @@ build/
 dist/
 wheels/
 *.egg-info
+.claude/*.*
+.calude/
 
 # Virtual environments
 .venv
